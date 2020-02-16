@@ -126,6 +126,113 @@ int main()
 
         else if (choice == 3)
         {
+            char str[100];
+            fgets(str, 100, stdin);
+            fgets(str, 100, stdin);
+
+            int len = string_len(str);
+            int flag = -1;
+            for (int i = 0; i < len; i++)
+            {
+                if (i == 0 && str[i] >= 'a' && str[i] <= 'z')
+                {
+                    str[i] = str[i] - 32;
+                }
+                else if (str[i] == '.')
+                {
+                    flag = 1;
+                }
+                else if (flag == 1 && str[i] >= 'a' && str[i] <= 'z')
+                {
+                    flag = -1;
+                    str[i] = str[i] - 32;
+                }
+                else if (flag == 1 && str[i] >= 'A' && str[i] <= 'Z')
+                {
+                    flag = -1;
+                }
+                else
+                {
+                    //
+                }
+            }
+            printf("%s\n", str);
+        }
+        else if (choice == 4)
+        {
+            char str[100];
+            char suffix[100];
+
+            printf("Enter String: ");
+            fgets(str, 100, stdin);
+            fgets(str, 100, stdin);
+            printf("Find subString: ");
+            fgets(suffix, 100, stdin);
+
+            int len1 = string_len(str);
+            int len2 = string_len(suffix);
+
+            char final[256];
+
+            for (int i = 0; i < len1; i++)
+            {
+                final[i] = str[i];
+            }
+
+            for (int i = 0; i < len2; i++)
+            {
+                final[len1 + i] = suffix[i];
+            }
+            final[len1 + len2] = '\0';
+            printf("%s\n", final);
+        }
+
+        else if (choice == 5)
+        {
+            char str[100];
+            char suffix[100];
+
+            printf("Enter String: ");
+            fgets(str, 100, stdin);
+            fgets(str, 100, stdin);
+            printf("Find suffix: ");
+            fgets(suffix, 100, stdin);
+
+            int len = string_len(str);
+            int subLen = string_len(suffix);
+
+            int index = -1;
+            for (int i = len - subLen - 1; i < len; i++)
+            {
+                int flag = 1;
+                for (int j = 0; j < subLen; j++)
+                {
+                    if (suffix[j] != str[i + j])
+                    {
+                        flag = 0;
+                    }
+                }
+
+                if (flag == 1)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            if (index == -1)
+            {
+                printf("No suffix found\n");
+                continue;
+            }
+
+            char final[100];
+
+            for (int i = 0; i < index; i++)
+            {
+                final[i] = str[i];
+            }
+
+            printf("%s\n", final);
         }
 
         else
