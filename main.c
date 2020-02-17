@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+int string_size = 256;
+
 int string_len(char a[])
 {
     int len = 0;
@@ -28,10 +30,10 @@ int main()
         scanf("%d", &choice);
         if (choice == 1)
         {
-            char str[100];
+            char str[string_size];
             printf("Enter String: ");
-            fgets(str, 100, stdin);
-            fgets(str, 100, stdin);
+            fgets(str, string_size, stdin);
+            fgets(str, string_size, stdin);
             int len = string_len(str);
             printf("%d\n", len);
             int i;
@@ -47,15 +49,15 @@ int main()
 
         else if (choice == 2)
         {
-            char str[100];
-            char search[100];
-            char replace[100];
+            char str[string_size];
+            char search[string_size];
+            char replace[string_size];
 
             printf("Enter String: ");
-            fgets(str, 100, stdin);
-            fgets(str, 100, stdin);
+            fgets(str, string_size, stdin);
+            fgets(str, string_size, stdin);
             printf("Find subString: ");
-            fgets(search, 100, stdin);
+            fgets(search, string_size, stdin);
 
             int len = string_len(str);
             int subLen = string_len(search);
@@ -84,11 +86,11 @@ int main()
                 continue;
             }
             printf("Enter replacement: ");
-            fgets(replace, 100, stdin);
+            fgets(replace, string_size, stdin);
 
             int len2 = string_len(replace);
 
-            char temp[100];
+            char temp[string_size];
 
             for (int i = 0; i < index; i++)
             {
@@ -99,7 +101,7 @@ int main()
             {
                 temp[index + j] = replace[j];
             }
-            char str2[100];
+            char str2[string_size];
 
             int j = 0;
             for (int i = index + subLen; i < len; i++)
@@ -109,7 +111,7 @@ int main()
 
             int str_len = string_len(str2);
 
-            char final[200];
+            char final[2 * string_size];
 
             for (int i = 0; i <= index + len2; i++)
             {
@@ -126,9 +128,9 @@ int main()
 
         else if (choice == 3)
         {
-            char str[100];
-            fgets(str, 100, stdin);
-            fgets(str, 100, stdin);
+            char str[string_size];
+            fgets(str, string_size, stdin);
+            fgets(str, string_size, stdin);
 
             int len = string_len(str);
             int flag = -1;
@@ -160,14 +162,14 @@ int main()
         }
         else if (choice == 4)
         {
-            char str[100];
-            char suffix[100];
+            char str[string_size];
+            char suffix[string_size];
 
             printf("Enter String: ");
-            fgets(str, 100, stdin);
-            fgets(str, 100, stdin);
+            fgets(str, string_size, stdin);
+            fgets(str, string_size, stdin);
             printf("Find subString: ");
-            fgets(suffix, 100, stdin);
+            fgets(suffix, string_size, stdin);
 
             int len1 = string_len(str);
             int len2 = string_len(suffix);
@@ -189,14 +191,14 @@ int main()
 
         else if (choice == 5)
         {
-            char str[100];
-            char suffix[100];
+            char str[string_size];
+            char suffix[string_size];
 
             printf("Enter String: ");
-            fgets(str, 100, stdin);
-            fgets(str, 100, stdin);
+            fgets(str, string_size, stdin);
+            fgets(str, string_size, stdin);
             printf("Find suffix: ");
-            fgets(suffix, 100, stdin);
+            fgets(suffix, string_size, stdin);
 
             int len = string_len(str);
             int subLen = string_len(suffix);
@@ -225,7 +227,7 @@ int main()
                 continue;
             }
 
-            char final[100];
+            char final[string_size];
 
             for (int i = 0; i < index; i++)
             {
