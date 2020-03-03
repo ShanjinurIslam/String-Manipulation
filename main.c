@@ -104,7 +104,7 @@ int main()
             char str2[string_size];
 
             int j = 0;
-            for (int i = index + subLen; i < len; i++)
+            for (int i = index + subLen; i <= len; i++)
             {
                 str2[j++] = str[i];
             }
@@ -113,12 +113,12 @@ int main()
 
             char final[2 * string_size];
 
-            for (int i = 0; i <= index + len2; i++)
+            for (int i = 0; i < index + len2; i++)
             {
                 final[i] = temp[i];
             }
 
-            for (int i = 0; i < str_len; i++)
+            for (int i = 0; i <= str_len; i++)
             {
                 final[index + len2 + i] = str2[i];
             }
@@ -233,6 +233,8 @@ int main()
             {
                 final[i] = str[i];
             }
+
+            final[index+1] = '\0' ;
 
             printf("%s\n", final);
         }
